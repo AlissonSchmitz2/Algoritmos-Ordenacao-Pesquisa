@@ -1,4 +1,4 @@
-package com.algritmosdeordenacao.algoritmos;
+package br.com.analisealgortmos.algoritmos;
 
 public class radixsort {
 	int maior(int data[], int n){ //retorna maior numero no vetor

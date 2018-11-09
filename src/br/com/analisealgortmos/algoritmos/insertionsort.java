@@ -1,4 +1,4 @@
-package com.algritmosdeordenacao.algoritmos;
+package br.com.analisealgortmos.algoritmos;
 
 public class insertionsort {
 
