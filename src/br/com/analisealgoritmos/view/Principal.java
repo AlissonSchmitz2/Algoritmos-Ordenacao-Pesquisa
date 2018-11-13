@@ -23,6 +23,8 @@ public class Principal extends JFrame{
 		private JMenu menuOrdenacao, menuPesquisa, menuUtilitarios;
 
 		private JDesktopPane desktop;
+		
+		private OrdenacaoSimplesWindow frameOrdenacaoSimples;
 
 		//private JLabel wallpaper;
 
@@ -95,8 +97,8 @@ public class Principal extends JFrame{
 			menuItem.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 
-					//frameJanela = new janelaWindow();
-					//abrirFrame(frameJanela);
+					frameOrdenacaoSimples = new OrdenacaoSimplesWindow(desktop);
+					abrirFrame(frameOrdenacaoSimples);
 
 				}
 			});
