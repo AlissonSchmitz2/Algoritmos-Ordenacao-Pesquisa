@@ -1,25 +1,15 @@
 package br.com.analisealgoritmos.view;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Frame;
-import java.awt.Image;
 import java.awt.Rectangle;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.PropertyVetoException;
-import java.net.URL;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
-import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -28,13 +18,13 @@ import javax.swing.WindowConstants;
 
 public class Principal extends JFrame{
 
-		private JMenu menu1;
-		private JMenu menu2;
-		private JMenu menu3;
+	private static final long serialVersionUID = 395695936701938788L;
+
+		private JMenu menuOrdenacao, menuPesquisa, menuUtilitarios;
 
 		private JDesktopPane desktop;
 
-		private JLabel wallpaper;
+		//private JLabel wallpaper;
 
 		public Principal(){
 			super();
@@ -63,49 +53,43 @@ public class Principal extends JFrame{
 			// Full screen
 			setExtendedState(Frame.MAXIMIZED_BOTH);
 		}
-
-		private String getDateTime() {
-			DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-			Date date = new Date();
-			return dateFormat.format(date);
-		}
-
+		
 		private void inicializar() {
-			String dataLogin = getDateTime();
-			this.setTitle("Algoritmos de Ordenação");
-			this.setJMenuBar(getWindowMenuBar());
-			this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-			this.setBounds(new Rectangle(0, 0, 796, 713));
-			this.setFocusableWindowState(true);
+			setVisible(true);
+			setTitle("Algoritmos de Ordenação e Pesquisa");
+			setJMenuBar(getWindowMenuBar());
+			setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+			setBounds(new Rectangle(0, 0, 796, 713));
+			setFocusableWindowState(true);
 			getContentPane().setBackground(new Color(247, 247, 247));
-
 		}
 
 		//MENU DE NAVEGAÇÃO
 		private JMenuBar getWindowMenuBar() {
 			JMenuBar menuBar = new JMenuBar();
-			menuBar.add(getMenu1());
-			//menuBar.add(getMenu2());
-			//menuBar.add(getMenu3());
-
+			menuBar.add(getMenuOrdenacao());
+			menuBar.add(getMenuPesquisa());
+			menuBar.add(getMenuUtilitarios());
+			
 			return menuBar;
 		}
 
-		// Menu Alunos
-		private JMenu getMenu1() {
-			menu1 = new JMenu();
-			menu1.setText("Menu 1");
-			menu1.setFont(getDefaultFont());
+		//Menu Ordenacao
+		private JMenu getMenuOrdenacao() {
+			menuOrdenacao = new JMenu();
+			menuOrdenacao.setText("Algoritmos de Ordenação");
+			menuOrdenacao.setFont(getDefaultFont());
 
 			//Opções do menu
-			menu1.add(getMenuItem1());
-
-			return menu1;
+			menuOrdenacao.add(getMenuItemSimples());
+			menuOrdenacao.add(getMenuItemSofisticados());
+			
+			return menuOrdenacao;
 		}
 
-		private JMenuItem getMenuItem1() {
+		private JMenuItem getMenuItemSimples() {
 			JMenuItem menuItem = new JMenuItem();
-			menuItem.setText("Menu Item 1");
+			menuItem.setText("Métodos Simples");
 			menuItem.setFont(getDefaultFont());
 
 			menuItem.addActionListener(new ActionListener() {
@@ -120,6 +104,132 @@ public class Principal extends JFrame{
 			return menuItem;
 		}
 
+		private JMenuItem getMenuItemSofisticados() {
+			JMenuItem menuItem = new JMenuItem();
+			menuItem.setText("Métodos Sofisticados");
+			menuItem.setFont(getDefaultFont());
+
+			menuItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+
+					//frameJanela = new janelaWindow();
+					//abrirFrame(frameJanela);
+
+				}
+			});
+
+			return menuItem;
+		}
+
+		//Menu Pesquisa
+		private JMenu getMenuPesquisa() {
+			menuPesquisa = new JMenu();
+			menuPesquisa.setText("Algoritmos de Pesquisa");
+			menuPesquisa.setFont(getDefaultFont());
+
+			//Opções do menu
+			menuPesquisa.add(getMenuItemBinaria());
+			menuPesquisa.add(getMenuItemLinear());
+			menuPesquisa.add(getMenuItemBogoBusca());
+			
+			return menuPesquisa;
+		}
+
+		private JMenuItem getMenuItemBinaria() {
+			JMenuItem menuItem = new JMenuItem();
+			menuItem.setText("Pesquisa Binária");
+			menuItem.setFont(getDefaultFont());
+
+			menuItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+
+					//frameJanela = new janelaWindow();
+					//abrirFrame(frameJanela);
+
+				}
+			});
+
+			return menuItem;
+		}
+		
+		private JMenuItem getMenuItemLinear() {
+			JMenuItem menuItem = new JMenuItem();
+			menuItem.setText("Pesquisa Linear");
+			menuItem.setFont(getDefaultFont());
+
+			menuItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+
+					//frameJanela = new janelaWindow();
+					//abrirFrame(frameJanela);
+
+				}
+			});
+
+			return menuItem;
+		}
+		
+		private JMenuItem getMenuItemBogoBusca() {
+			JMenuItem menuItem = new JMenuItem();
+			menuItem.setText("Bogo Busca");
+			menuItem.setFont(getDefaultFont());
+
+			menuItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+
+					//frameJanela = new janelaWindow();
+					//abrirFrame(frameJanela);
+
+				}
+			});
+
+			return menuItem;
+		}
+
+		//Menu Utilitários
+		private JMenu getMenuUtilitarios() {
+			menuUtilitarios = new JMenu();
+			menuUtilitarios.setText("Utilitários");
+			menuUtilitarios.setFont(getDefaultFont());
+
+			//Opções do menu
+			menuUtilitarios.add(getMenuItemSobre());
+			menuUtilitarios.add(getMenuItemSair());
+			
+			return menuUtilitarios;
+		}
+
+		private JMenuItem getMenuItemSobre() {
+			JMenuItem menuItem = new JMenuItem();
+			menuItem.setText("Sobre");
+			menuItem.setFont(getDefaultFont());
+
+			menuItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					JOptionPane.showMessageDialog(rootPane, 
+					"Alisson Schmitz\n"
+					+ "Flávio\nMurilo", "Desenvolvimento",
+					JOptionPane.INFORMATION_MESSAGE);
+				}
+			});
+
+			return menuItem;
+		}
+
+		private JMenuItem getMenuItemSair() {
+			JMenuItem menuItem = new JMenuItem();
+			menuItem.setText("Sair");
+			menuItem.setFont(getDefaultFont());
+
+			menuItem.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					System.exit(0);
+				}
+			});
+
+			return menuItem;
+		}
+		
 		private void abrirFrame(AbstractWindowFrame frame) {
 			boolean frameJaExiste = false;
 
