@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.text.MaskFormatter;
 
-public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
+public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 
-	private static final long serialVersionUID = -6073863849957993869L;
+	private static final long serialVersionUID = 8803693815956789621L;
 
 	private JLabel label;
 	private JFormattedTextField txfQtValores;
@@ -26,7 +26,7 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 	private JPanel painel;
 
 	// Checkbox dos algoritmos e atributos
-	private JCheckBox cBoxInsertionSort, cBoxSelectionSort, cBoxBubbleSort, cBoxCombSort;
+	private JCheckBox cBoxMergeSort, cBoxHeapSort, cBoxQuickSort, cBoxRadixSort, cBoxTimSort, cBoxCountingSort;
 	private JCheckBox cBoxTempo, cBoxComparacoes, cBoxTrocas;
 
 	// Combo de casos
@@ -36,8 +36,8 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 	@SuppressWarnings("unused")
 	private JDesktopPane desktop;
 
-	public OrdenacaoSimplesWindow(JDesktopPane desktop) {
-		super("Algoritmos de Ordenação Simples");
+	public OrdenacaoSofisticadaWindow(JDesktopPane desktop) {
+		super("Algoritmos de Ordenação Sofiscadas");
 		this.desktop = desktop;
 		setBackground(new Color(250, 250, 250));
 		criarComponentes();
@@ -47,55 +47,75 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 
 		/* PAINEL DE ALGORITMOS */
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(30, 50, 200, 150));
+		painel.setBounds(new Rectangle(30, 50, 250, 150));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createTitledBorder("Algoritmos"));
 		getContentPane().add(painel);
 
-		// CheckBox Insertion Sort.
-		cBoxInsertionSort = new JCheckBox();
-		cBoxInsertionSort.setBackground(Color.WHITE);
-		cBoxInsertionSort.setBounds(10, 20, 20, 25);
-		painel.add(cBoxInsertionSort);
+		// CheckBox Merge Sort.
+		cBoxMergeSort = new JCheckBox();
+		cBoxMergeSort.setBackground(Color.WHITE);
+		cBoxMergeSort.setBounds(10, 20, 20, 25);
+		painel.add(cBoxMergeSort);
 
-		label = new JLabel("Insertion Sort");
+		label = new JLabel("Merge Sort");
 		label.setBounds(32, 20, 200, 25);
 		painel.add(label);
 
-		// CheckBox Selection Sort.
-		cBoxSelectionSort = new JCheckBox();
-		cBoxSelectionSort.setBackground(Color.WHITE);
-		cBoxSelectionSort.setBounds(10, 50, 20, 25);
-		painel.add(cBoxSelectionSort);
+		// CheckBox Heap Sort.
+		cBoxHeapSort = new JCheckBox();
+		cBoxHeapSort.setBackground(Color.WHITE);
+		cBoxHeapSort.setBounds(10, 50, 20, 25);
+		painel.add(cBoxHeapSort);
 
-		label = new JLabel("Selection Sort");
+		label = new JLabel("Heap Sort");
 		label.setBounds(32, 50, 200, 25);
 		painel.add(label);
 
-		// CheckBox Bubble Sort.
-		cBoxBubbleSort = new JCheckBox();
-		cBoxBubbleSort.setBackground(Color.WHITE);
-		cBoxBubbleSort.setBounds(10, 80, 20, 25);
-		painel.add(cBoxBubbleSort);
+		// CheckBox Quick Sort.
+		cBoxQuickSort = new JCheckBox();
+		cBoxQuickSort.setBackground(Color.WHITE);
+		cBoxQuickSort.setBounds(10, 80, 20, 25);
+		painel.add(cBoxQuickSort);
 
-		label = new JLabel("Bubble Sort");
+		label = new JLabel("Quick Sort");
 		label.setBounds(32, 80, 200, 25);
 		painel.add(label);
 
-		// CheckBox Comb Sort.
-		cBoxCombSort = new JCheckBox();
-		cBoxCombSort.setBackground(Color.WHITE);
-		cBoxCombSort.setBounds(10, 110, 20, 25);
-		painel.add(cBoxCombSort);
+		// CheckBox Radix Sort.
+		cBoxRadixSort = new JCheckBox();
+		cBoxRadixSort.setBackground(Color.WHITE);
+		cBoxRadixSort.setBounds(110, 20, 20, 25);
+		painel.add(cBoxRadixSort);
 
-		label = new JLabel("Comb Sort");
-		label.setBounds(32, 110, 200, 25);
+		label = new JLabel("Radix Sort");
+		label.setBounds(132, 20, 200, 25);
+		painel.add(label);
+
+		// CheckBox Tim Sort.
+		cBoxTimSort = new JCheckBox();
+		cBoxTimSort.setBackground(Color.WHITE);
+		cBoxTimSort.setBounds(110, 50, 20, 25);
+		painel.add(cBoxTimSort);
+
+		label = new JLabel("Tim Sort");
+		label.setBounds(132, 50, 200, 25);
+		painel.add(label);
+
+		// CheckBox Counting Sort.
+		cBoxCountingSort = new JCheckBox();
+		cBoxCountingSort.setBackground(Color.WHITE);
+		cBoxCountingSort.setBounds(110, 80, 20, 25);
+		painel.add(cBoxCountingSort);
+
+		label = new JLabel("Counting Sort");
+		label.setBounds(132, 80, 200, 25);
 		painel.add(label);
 
 		/* PAINEL DE ATRIBUTOS */
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(260, 50, 200, 150));
+		painel.setBounds(new Rectangle(310, 50, 200, 150));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createTitledBorder("Atributos"));
@@ -193,10 +213,12 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 	}
 
 	private String validarCampos() {
-		if(!cBoxInsertionSort.isSelected() &&
-		   !cBoxSelectionSort.isSelected() &&
-		   !cBoxBubbleSort.isSelected() &&
-		   !cBoxCombSort.isSelected()) {	
+		if(!cBoxMergeSort.isSelected() &&
+		   !cBoxHeapSort.isSelected() &&
+		   !cBoxQuickSort.isSelected() &&
+		   !cBoxRadixSort.isSelected() &&
+		   !cBoxTimSort.isSelected() &&
+		   !cBoxCountingSort.isSelected()) {	
 		return "Selecione ao menos um Algoritmo para gerar!";	
 		}
 		
@@ -219,15 +241,19 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 	}
 
 	private void limparCampos() {
-		cBoxInsertionSort.setSelected(false);
-		cBoxSelectionSort.setSelected(false);
-		cBoxBubbleSort.setSelected(false);
-		cBoxCombSort.setSelected(false);
+		cBoxMergeSort.setSelected(false);
+		cBoxHeapSort.setSelected(false);
+		cBoxQuickSort.setSelected(false);
+		cBoxRadixSort.setSelected(false);
+		cBoxTimSort.setSelected(false);
+		cBoxCountingSort.setSelected(false);
 		cBoxTempo.setSelected(false);
 		cBoxComparacoes.setSelected(false);
 		cBoxTrocas.setSelected(false);
 		txfQtValores.setText("");
 		cbxCaso.setSelectedIndex(0);
 	}
+
+
 
 }
