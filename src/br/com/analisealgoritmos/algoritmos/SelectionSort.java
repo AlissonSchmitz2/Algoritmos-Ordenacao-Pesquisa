@@ -1,4 +1,4 @@
-package br.com.analisealgortmos.algoritmos;
+package br.com.analisealgoritmos.algoritmos;
 
 import br.com.analisealgoritmos.model.ConstruirArrayCasos;
 import br.com.analisealgoritmos.model.SelectionSortModel;
@@ -31,7 +31,7 @@ public class SelectionSort {
 		
 		for (i = 0; i < elementos.length - 1; i++){
 		min = i;
-			for (j = i++; j < elementos.length; j++) {	
+			for (j = i+1; j < elementos.length; j++) {	
 			comparacoes++;			   
 				if(elementos[j] < elementos[min]) { 
 				trocas++;

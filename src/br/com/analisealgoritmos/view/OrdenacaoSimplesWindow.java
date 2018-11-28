@@ -16,10 +16,35 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.text.MaskFormatter;
 
+import br.com.analisealgoritmos.algoritmos.BubbleSort;
+import br.com.analisealgoritmos.algoritmos.CombSort;
+import br.com.analisealgoritmos.algoritmos.InsertionSort;
+import br.com.analisealgoritmos.algoritmos.SelectionSort;
+import br.com.analisealgoritmos.model.BubbleSortModel;
+import br.com.analisealgoritmos.model.CombSortModel;
+import br.com.analisealgoritmos.model.InsertionSortModel;
+import br.com.analisealgoritmos.model.ResultadosMetodosSimplesModel;
+import br.com.analisealgoritmos.model.SelectionSortModel;
+import br.com.analisealgoritmos.result.ResultadosMetodosSimplesWindow;
+
 public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 
 	private static final long serialVersionUID = -6073863849957993869L;
 
+	// Resultados
+	ResultadosMetodosSimplesModel resultadosMetodosSimplesModel;
+	
+	// Algoritmos, model
+	InsertionSort insertionSort;
+	InsertionSortModel insertionSortModel;
+	SelectionSort selectionSort;
+	SelectionSortModel selectionSortModel;
+	BubbleSort bubbleSort;
+	BubbleSortModel bubbleSortModel;
+	CombSort combSort;
+	CombSortModel combSortModel;
+	
+	// Componentes
 	private JLabel label;
 	private JFormattedTextField txfQtValores;
 	private JButton bntGerar, bntLimpar;
@@ -31,7 +56,7 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 
 	// Combo de casos
 	private JComboBox<String> cbxCaso;
-
+		
 	// Desktop.
 	@SuppressWarnings("unused")
 	private JDesktopPane desktop;
@@ -167,7 +192,6 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				gerarRelatorio();
-
 			}
 		});
 
@@ -189,7 +213,49 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 			JOptionPane.showMessageDialog(rootPane, validarCampos(), "Alerta", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
+		
+		algoritmosSelecionados();
+		
+		
+		
+		
+		//Abrir o frame de resultados caso estejam marcadas as opções 
+		ResultadosMetodosSimplesWindow resultadosMetodosSimplesWindow = new ResultadosMetodosSimplesWindow(resultadosMetodosSimplesModel);
+		abrirFrame(resultadosMetodosSimplesWindow);	
+	}
+	
+	private void algoritmosSelecionados(){
+		
+		resultadosMetodosSimplesModel = new ResultadosMetodosSimplesModel();
+		
+		if(cBoxInsertionSort != null && cBoxInsertionSort.isSelected()) {
+			insertionSortModel = new InsertionSortModel();
+			insertionSort = new InsertionSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), insertionSortModel);
+			resultadosMetodosSimplesModel.setInsertionSortModel(insertionSortModel);
+		}
+		
+		if(cBoxSelectionSort != null && cBoxSelectionSort.isSelected()) {
+			selectionSortModel = new SelectionSortModel();
+			selectionSort = new SelectionSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), selectionSortModel);
+			resultadosMetodosSimplesModel.setSelectionSortModel(selectionSortModel);
+		}
+		
+		if(cBoxBubbleSort != null && cBoxBubbleSort.isSelected()) {
+			bubbleSortModel = new BubbleSortModel();
+			bubbleSort = new BubbleSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), bubbleSortModel);
+			resultadosMetodosSimplesModel.setBubbleSortModel(bubbleSortModel);
+		}
+		
+		if(cBoxCombSort != null && cBoxCombSort.isSelected()) {
+			combSortModel = new CombSortModel();
+			combSort = new CombSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), combSortModel);
+			resultadosMetodosSimplesModel.setCombSortModel(combSortModel);
+		}
 
+		resultadosMetodosSimplesModel.setQtdValores(Integer.valueOf(txfQtValores.getText().trim()));
+		resultadosMetodosSimplesModel.setTempo(cBoxTempo.isSelected());
+		resultadosMetodosSimplesModel.setTrocas(cBoxTrocas.isSelected());
+		
 	}
 
 	private String validarCampos() {
@@ -211,8 +277,7 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 				}
 					if(cbxCaso.getSelectedItem().equals("-Selecione-")) {
 					return "Selecione o caso para gerar!";	
-					}
-							
+					}		
 			
 		//limparCampos();
 		return "";
@@ -228,6 +293,12 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 		cBoxTrocas.setSelected(false);
 		txfQtValores.setText("");
 		cbxCaso.setSelectedIndex(0);
+	}
+	
+	private void abrirFrame(AbstractWindowFrame frame) {
+		desktop.add(frame);
+
+		frame.showFrame();
 	}
 
 }

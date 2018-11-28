@@ -1,11 +1,11 @@
-package br.com.analisealgortmos.algoritmos;
+package br.com.analisealgoritmos.algoritmos;
 
 import br.com.analisealgoritmos.model.CombSortModel;
 import br.com.analisealgoritmos.model.ConstruirArrayCasos;
 
 public class CombSort {
 	//Atributos
-	private int trocas = 0, comparacoes = 0, elementos[], qtdValores;
+	private int trocas = 0, comparacoes = 0, elementos[], qtdValores, intervalo = qtdValores;
 	private long tempoInicial;
 		
 	//Model
@@ -27,14 +27,13 @@ public class CombSort {
 		//Verificar o tempo (ms)
 		tempoInicial = System.currentTimeMillis();
 				
-		int i, j, aux, intervalo = qtdValores, trocado = 1;
+		int i, j, aux, trocado = 1;
 		
 		while (intervalo > 1 || trocado == 1)
 		{
 			intervalo = intervalo * 10 / 13;
 			if (intervalo == 9 || intervalo == 10) intervalo = 11;
-			if (intervalo < 1) intervalo = 1;
-			trocado = 0;
+			if (intervalo < 1) intervalo = 1; trocado = 0;
 			for (i = 0, j = intervalo; j < elementos.length; i++, j++)
 			{
 				comparacoes++;

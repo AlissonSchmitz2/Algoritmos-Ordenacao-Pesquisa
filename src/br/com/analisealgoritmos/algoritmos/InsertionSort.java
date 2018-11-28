@@ -1,4 +1,4 @@
-package br.com.analisealgortmos.algoritmos;
+package br.com.analisealgoritmos.algoritmos;
 
 import br.com.analisealgoritmos.model.InsertionSortModel;
 import br.com.analisealgoritmos.model.ConstruirArrayCasos;

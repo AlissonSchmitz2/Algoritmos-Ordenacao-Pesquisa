@@ -1,4 +1,4 @@
-package br.com.analisealgortmos.algoritmos;
+package br.com.analisealgoritmos.algoritmos;
 
 public class heapsort {
 
