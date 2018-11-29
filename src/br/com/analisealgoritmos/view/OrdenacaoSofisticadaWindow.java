@@ -16,10 +16,43 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.text.MaskFormatter;
 
+import br.com.analisealgoritmos.algoritmos.CountingSort;
+import br.com.analisealgoritmos.algoritmos.HeapSort;
+import br.com.analisealgoritmos.algoritmos.MergeSort;
+import br.com.analisealgoritmos.algoritmos.QuickSort;
+import br.com.analisealgoritmos.algoritmos.RadixSort;
+import br.com.analisealgoritmos.algoritmos.TimSort;
+import br.com.analisealgoritmos.model.CountingSortModel;
+import br.com.analisealgoritmos.model.HeapSortModel;
+import br.com.analisealgoritmos.model.MergeSortModel;
+import br.com.analisealgoritmos.model.QuickSortModel;
+import br.com.analisealgoritmos.model.RadixSortModel;
+import br.com.analisealgoritmos.model.ResultadosMetodosSofisticadosModel;
+import br.com.analisealgoritmos.model.TimSortModel;
+import br.com.analisealgoritmos.result.ResultadosMetodosSofisticadosWindow;
+
 public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 
 	private static final long serialVersionUID = 8803693815956789621L;
+	
+	// Resultados
+	private ResultadosMetodosSofisticadosModel resultadosMetodosSofisticadosModel;
 
+	// Algoritmos, model
+	MergeSort mergeSort;
+	MergeSortModel mergeSortModel;
+	RadixSort radixSort;
+	RadixSortModel radixSortModel;
+	HeapSort heapSort;
+	HeapSortModel heapSortModel;
+	TimSort timSort;
+	TimSortModel timSortModel;
+	QuickSort quickSort;
+	QuickSortModel quickSortModel;
+	CountingSort countingSort;
+	CountingSortModel countingSortModel;
+	
+	// Componentes
 	private JLabel label;
 	private JFormattedTextField txfQtValores;
 	private JButton bntGerar, bntLimpar;
@@ -33,7 +66,6 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 	private JComboBox<String> cbxCaso;
 
 	// Desktop.
-	@SuppressWarnings("unused")
 	private JDesktopPane desktop;
 
 	public OrdenacaoSofisticadaWindow(JDesktopPane desktop) {
@@ -187,7 +219,6 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				gerarRelatorio();
-
 			}
 		});
 
@@ -209,7 +240,58 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 			JOptionPane.showMessageDialog(rootPane, validarCampos(), "Alerta", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
-
+		
+		algoritmosSelecionados();
+		
+		//Abrir o frame de resultados caso estejam marcadas as opções 
+		ResultadosMetodosSofisticadosWindow resultadosMetodosSofisticadosWindow = new ResultadosMetodosSofisticadosWindow(resultadosMetodosSofisticadosModel);
+		abrirFrame(resultadosMetodosSofisticadosWindow);	
+	}
+	
+	private void algoritmosSelecionados(){
+		
+		resultadosMetodosSofisticadosModel = new ResultadosMetodosSofisticadosModel();
+		
+		if(cBoxMergeSort != null && cBoxMergeSort.isSelected()) {
+			mergeSortModel = new MergeSortModel();
+			mergeSort = new MergeSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), mergeSortModel);
+			resultadosMetodosSofisticadosModel.setMergeSortModel(mergeSortModel);
+		}
+		
+		if(cBoxRadixSort != null && cBoxRadixSort.isSelected()) {
+			radixSortModel = new RadixSortModel();
+			radixSort = new RadixSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), radixSortModel);
+			resultadosMetodosSofisticadosModel.setRadixSortModel(radixSortModel);
+		}
+		
+		if(cBoxHeapSort != null && cBoxHeapSort.isSelected()) {
+			heapSortModel = new HeapSortModel();
+			heapSort = new HeapSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), heapSortModel);
+			resultadosMetodosSofisticadosModel.setHeapSortModel(heapSortModel);
+		}
+		
+		if(cBoxTimSort != null && cBoxTimSort.isSelected()) {
+			timSortModel = new TimSortModel();
+			timSort = new TimSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), timSortModel);
+			resultadosMetodosSofisticadosModel.setTimSortModel(timSortModel);
+		}
+		
+		if(cBoxQuickSort != null && cBoxQuickSort.isSelected()) {
+			quickSortModel = new QuickSortModel();
+			quickSort = new QuickSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), quickSortModel);
+			resultadosMetodosSofisticadosModel.setQuickSortModel(quickSortModel);
+		}
+		
+		if(cBoxCountingSort != null && cBoxCountingSort.isSelected()) {
+			countingSortModel = new CountingSortModel();
+			countingSort = new CountingSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), countingSortModel);
+			resultadosMetodosSofisticadosModel.setCountingSortModel(countingSortModel);
+		}
+		
+		resultadosMetodosSofisticadosModel.setQtdValores(Integer.valueOf(txfQtValores.getText().trim()));
+		resultadosMetodosSofisticadosModel.setTempo(cBoxTempo.isSelected());
+		resultadosMetodosSofisticadosModel.setTrocas(cBoxTrocas.isSelected());
+		
 	}
 
 	private String validarCampos() {
@@ -254,6 +336,9 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 		cbxCaso.setSelectedIndex(0);
 	}
 
+	private void abrirFrame(AbstractWindowFrame frame) {
+		desktop.add(frame);
 
-
+		frame.showFrame();
+	}
 }

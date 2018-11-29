@@ -58,7 +58,6 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 	private JComboBox<String> cbxCaso;
 		
 	// Desktop.
-	@SuppressWarnings("unused")
 	private JDesktopPane desktop;
 
 	public OrdenacaoSimplesWindow(JDesktopPane desktop) {
@@ -215,9 +214,6 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 		}
 		
 		algoritmosSelecionados();
-		
-		
-		
 		
 		//Abrir o frame de resultados caso estejam marcadas as opções 
 		ResultadosMetodosSimplesWindow resultadosMetodosSimplesWindow = new ResultadosMetodosSimplesWindow(resultadosMetodosSimplesModel);

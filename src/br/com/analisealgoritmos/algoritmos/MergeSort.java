@@ -73,9 +73,9 @@ public class MergeSort {
 		array[k++] = array_esquerda[i++];
 		}
 		
-			while (j < direita) {
-			array[k++] = array_direita[j++];
-			}
+		while (j < direita) {
+		array[k++] = array_direita[j++];
+		}
 	}
 	
 	private void setarResultados(){
