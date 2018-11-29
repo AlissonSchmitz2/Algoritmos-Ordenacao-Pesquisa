@@ -55,7 +55,7 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 	// Componentes
 	private JLabel label;
 	private JFormattedTextField txfQtValores;
-	private JButton bntGerar, bntLimpar;
+	private JButton bntGerar, bntLimpar, bntSelecionarTodos;
 	private JPanel painel;
 
 	// Checkbox dos algoritmos e atributos
@@ -232,6 +232,17 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 				limparCampos();
 			}
 		});
+		
+		bntSelecionarTodos = new JButton("TODOS");
+		bntSelecionarTodos.setBounds(330, 320, 130, 25);
+		bntSelecionarTodos.setToolTipText("Selecionar Todos");
+		getContentPane().add(bntSelecionarTodos);
+		bntSelecionarTodos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				selecionarTodos();
+			}
+		});
 
 	}
 
@@ -320,6 +331,20 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 			
 		//limparCampos();
 		return "";
+	}
+	
+	
+	private void selecionarTodos() {
+		cBoxMergeSort.setSelected(true);
+		cBoxHeapSort.setSelected(true);
+		cBoxQuickSort.setSelected(true);
+		cBoxRadixSort.setSelected(true);
+		cBoxTimSort.setSelected(true);
+		cBoxCountingSort.setSelected(true);
+		cBoxTempo.setSelected(true);
+		cBoxComparacoes.setSelected(true);
+		cBoxTrocas.setSelected(true);
+
 	}
 
 	private void limparCampos() {

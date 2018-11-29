@@ -26,6 +26,9 @@ public class Principal extends JFrame {
 
 	OrdenacaoSimplesWindow frameOrdenacaoSimples;
 	OrdenacaoSofisticadaWindow frameOrdenacaoSofisticada;
+	PesquisaBinariaWindow framePesquisaBinaria;
+	PesquisaLinearWindow framePesquisaLinear;
+	BogoBuscaWindow frameBogoBusca;
 
 	// private JLabel wallpaper;
 
@@ -143,9 +146,8 @@ public class Principal extends JFrame {
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				// frameJanela = new janelaWindow();
-				// abrirFrame(frameJanela);
-
+				framePesquisaBinaria = new PesquisaBinariaWindow(desktop);
+				abrirFrame(framePesquisaBinaria);
 			}
 		});
 
@@ -159,10 +161,10 @@ public class Principal extends JFrame {
 
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				// frameJanela = new janelaWindow();
-				// abrirFrame(frameJanela);
-
+				
+				framePesquisaLinear = new PesquisaLinearWindow(desktop);
+				abrirFrame(framePesquisaLinear);			
+				
 			}
 		});
 
@@ -177,10 +179,8 @@ public class Principal extends JFrame {
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				// frameJanela = new janelaWindow();
-				// abrirFrame(frameJanela);
-
-			}
+				frameBogoBusca = new BogoBuscaWindow(desktop);
+				abrirFrame(frameBogoBusca);			}
 		});
 
 		return menuItem;
