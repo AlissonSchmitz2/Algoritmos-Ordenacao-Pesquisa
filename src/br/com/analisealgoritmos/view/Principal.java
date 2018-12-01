@@ -40,19 +40,6 @@ public class Principal extends JFrame {
 		desktop.setVisible(true);
 		setContentPane(desktop);
 
-		/*
-		 * //TODO: Colocar ícone URL url = this.getClass().getResource(""); Image
-		 * imagemTitulo = Toolkit.getDefaultToolkit().getImage(url);
-		 * this.setIconImage(imagemTitulo);
-		 * 
-		 * //TODO: IMAGEM WALLPAPER ImageIcon logo = new
-		 * ImageIcon(this.getClass().getResource(
-		 * "/br/com/sistemaescolar/icons/wallpaper.jpg")); wallpaper = new JLabel(logo);
-		 * 
-		 * Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		 * wallpaper.setBounds(0, -50, screenSize.width, screenSize.height);
-		 * getContentPane().add(wallpaper);
-		 */
 		inicializar();
 
 		// Full screen
