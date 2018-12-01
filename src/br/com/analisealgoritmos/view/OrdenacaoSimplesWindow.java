@@ -298,6 +298,7 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 		cBoxTempo.setSelected(true);
 		cBoxComparacoes.setSelected(true);
 		cBoxTrocas.setSelected(true);
+
 	}
 
 	private void limparCampos() {

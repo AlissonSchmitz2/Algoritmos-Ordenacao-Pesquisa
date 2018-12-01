@@ -29,26 +29,29 @@ public class CombSort {
 				
 		int i, j, aux, trocado = 1;
 		
-		while (intervalo > 1 || trocado == 1)
-		{
-			intervalo = intervalo * 10 / 13;
-			if (intervalo == 9 || intervalo == 10) intervalo = 11;
-			if (intervalo < 1) intervalo = 1; trocado = 0;
-			for (i = 0, j = intervalo; j < elementos.length; i++, j++)
-			{
-				comparacoes++;
-				if (elementos[i] > elementos[j])
-				{
-					trocas++;
+		while (intervalo > 1 || trocado == 1){
+		intervalo = intervalo * 10 / 13;
+			if (intervalo == 9 || intervalo == 10) {
+			intervalo = 11;
+			}
+			
+			if (intervalo < 1) {
+			intervalo = 1;
+			trocado = 0;
+			}
+			
+			for (i = 0, j = intervalo; j < elementos.length; i++, j++){
+			comparacoes++;
+				if (elementos[i] > elementos[j]){
+				trocas++;
 					
-					aux = elementos[i];
-					elementos[i] = elementos[j];
-					elementos[j] = aux;
-					trocado = 1;
+				aux = elementos[i];
+				elementos[i] = elementos[j];
+				elementos[j] = aux;
+				trocado = 1;
 				}
 			}
 		}
-		
 	}
 	
 	private void setarResultados() {

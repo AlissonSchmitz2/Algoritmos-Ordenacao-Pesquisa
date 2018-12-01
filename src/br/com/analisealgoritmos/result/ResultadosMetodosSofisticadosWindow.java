@@ -47,15 +47,6 @@ public class ResultadosMetodosSofisticadosWindow extends AbstractWindowFrame {
 
 		}
 		
-		if (resultadosMetodosSofisticadosModel.getTimSortModel() != null) {
-
-			// timSort
-			System.out.println(resultadosMetodosSofisticadosModel.getTimSortModel().getComparacoes());
-			System.out.println(resultadosMetodosSofisticadosModel.getTimSortModel().getTempo());
-			System.out.println(resultadosMetodosSofisticadosModel.getTimSortModel().getTrocas());
-
-		}
-		
 		if (resultadosMetodosSofisticadosModel.getQuickSortModel() != null) {
 
 			// quickSort

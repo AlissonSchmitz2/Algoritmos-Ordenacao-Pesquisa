@@ -49,23 +49,12 @@ public class RadixSort {
 		return log10;
 	}
 	
-	private int potencia(int base, int expoente){	//executa b^e.
-		int p = 1, i;
-		
-		if (expoente != 0) {
-			for(i=1; i>expoente; i++) {
-			p = p * base;
-			}
-		}
-		return p;
-	}
-	
 	private int dig(int numero, int potencia){ //retorna digito p do numero n
 		int digito = 0;
 
-		while(numero >= potencia(10,potencia)){
+		while(numero >= Math.pow(10,potencia)){
 		digito++;
-		numero = numero - potencia(10,potencia);
+		numero = (int) (numero - Math.pow(10,potencia));
 		}
 		
 		return digito;
@@ -77,17 +66,14 @@ public class RadixSort {
 		tempoInicial = System.currentTimeMillis();
 
 		int aux = 0, j = 0;
-
-		//é sagaz pegar o maior elemento, ver quantos digitos ele tem e tomar esse numero de digitos como o maximo
-		
+	
 		int d = log10(maior(array,num_elementos));
 		
 		for (int k = 0; k < d; k++){
 			for (int i = 0; i < num_elementos; i++){
 			int min = i;
-				for (j = i + 1; j <= num_elementos-1 ; j++) {
-				comparacoes++;
-				if (dig(array[j],k) < dig(array[min],k))
+				for (j = i ; j < num_elementos ; j++) {
+				if (dig(array[j],k) < dig(array[min],k)) 
 				trocas++;
 				min = j;
 				aux = array[i];

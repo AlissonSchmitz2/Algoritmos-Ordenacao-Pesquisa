@@ -21,14 +21,12 @@ import br.com.analisealgoritmos.algoritmos.HeapSort;
 import br.com.analisealgoritmos.algoritmos.MergeSort;
 import br.com.analisealgoritmos.algoritmos.QuickSort;
 import br.com.analisealgoritmos.algoritmos.RadixSort;
-import br.com.analisealgoritmos.algoritmos.TimSort;
 import br.com.analisealgoritmos.model.CountingSortModel;
 import br.com.analisealgoritmos.model.HeapSortModel;
 import br.com.analisealgoritmos.model.MergeSortModel;
 import br.com.analisealgoritmos.model.QuickSortModel;
 import br.com.analisealgoritmos.model.RadixSortModel;
 import br.com.analisealgoritmos.model.ResultadosMetodosSofisticadosModel;
-import br.com.analisealgoritmos.model.TimSortModel;
 import br.com.analisealgoritmos.result.ResultadosMetodosSofisticadosWindow;
 
 public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
@@ -45,8 +43,6 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 	RadixSortModel radixSortModel;
 	HeapSort heapSort;
 	HeapSortModel heapSortModel;
-	TimSort timSort;
-	TimSortModel timSortModel;
 	QuickSort quickSort;
 	QuickSortModel quickSortModel;
 	CountingSort countingSort;
@@ -59,7 +55,7 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 	private JPanel painel;
 
 	// Checkbox dos algoritmos e atributos
-	private JCheckBox cBoxMergeSort, cBoxHeapSort, cBoxQuickSort, cBoxRadixSort, cBoxTimSort, cBoxCountingSort;
+	private JCheckBox cBoxMergeSort, cBoxHeapSort, cBoxQuickSort, cBoxRadixSort, cBoxCountingSort;
 	private JCheckBox cBoxTempo, cBoxComparacoes, cBoxTrocas;
 
 	// Combo de casos
@@ -125,24 +121,14 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 		label.setBounds(132, 20, 200, 25);
 		painel.add(label);
 
-		// CheckBox Tim Sort.
-		cBoxTimSort = new JCheckBox();
-		cBoxTimSort.setBackground(Color.WHITE);
-		cBoxTimSort.setBounds(110, 50, 20, 25);
-		painel.add(cBoxTimSort);
-
-		label = new JLabel("Tim Sort");
-		label.setBounds(132, 50, 200, 25);
-		painel.add(label);
-
 		// CheckBox Counting Sort.
 		cBoxCountingSort = new JCheckBox();
 		cBoxCountingSort.setBackground(Color.WHITE);
-		cBoxCountingSort.setBounds(110, 80, 20, 25);
+		cBoxCountingSort.setBounds(110, 50, 20, 25);
 		painel.add(cBoxCountingSort);
 
 		label = new JLabel("Counting Sort");
-		label.setBounds(132, 80, 200, 25);
+		label.setBounds(132, 50, 200, 25);
 		painel.add(label);
 
 		/* PAINEL DE ATRIBUTOS */
@@ -281,12 +267,6 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 			resultadosMetodosSofisticadosModel.setHeapSortModel(heapSortModel);
 		}
 		
-		if(cBoxTimSort != null && cBoxTimSort.isSelected()) {
-			timSortModel = new TimSortModel();
-			timSort = new TimSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), timSortModel);
-			resultadosMetodosSofisticadosModel.setTimSortModel(timSortModel);
-		}
-		
 		if(cBoxQuickSort != null && cBoxQuickSort.isSelected()) {
 			quickSortModel = new QuickSortModel();
 			quickSort = new QuickSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), quickSortModel);
@@ -310,7 +290,6 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 		   !cBoxHeapSort.isSelected() &&
 		   !cBoxQuickSort.isSelected() &&
 		   !cBoxRadixSort.isSelected() &&
-		   !cBoxTimSort.isSelected() &&
 		   !cBoxCountingSort.isSelected()) {	
 		return "Selecione ao menos um Algoritmo para gerar!";	
 		}
@@ -339,7 +318,6 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 		cBoxHeapSort.setSelected(true);
 		cBoxQuickSort.setSelected(true);
 		cBoxRadixSort.setSelected(true);
-		cBoxTimSort.setSelected(true);
 		cBoxCountingSort.setSelected(true);
 		cBoxTempo.setSelected(true);
 		cBoxComparacoes.setSelected(true);
@@ -352,7 +330,6 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 		cBoxHeapSort.setSelected(false);
 		cBoxQuickSort.setSelected(false);
 		cBoxRadixSort.setSelected(false);
-		cBoxTimSort.setSelected(false);
 		cBoxCountingSort.setSelected(false);
 		cBoxTempo.setSelected(false);
 		cBoxComparacoes.setSelected(false);

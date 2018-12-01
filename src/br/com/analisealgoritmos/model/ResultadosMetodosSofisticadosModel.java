@@ -6,7 +6,6 @@ public class ResultadosMetodosSofisticadosModel {
 	MergeSortModel mergeSortModel;
 	RadixSortModel radixSortModel;
 	HeapSortModel heapSortModel;
-	TimSortModel timSortModel;
 	QuickSortModel quickSortModel;
 	CountingSortModel countingSortModel;
 	
@@ -41,14 +40,6 @@ public class ResultadosMetodosSofisticadosModel {
 
 	public void setHeapSortModel(HeapSortModel heapSortModel) {
 		this.heapSortModel = heapSortModel;
-	}
-
-	public TimSortModel getTimSortModel() {
-		return timSortModel;
-	}
-
-	public void setTimSortModel(TimSortModel timSortModel) {
-		this.timSortModel = timSortModel;
 	}
 
 	public QuickSortModel getQuickSortModel() {
