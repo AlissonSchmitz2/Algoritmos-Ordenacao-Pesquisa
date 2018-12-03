@@ -185,8 +185,8 @@ public class ResultadosMetodosSofisticadosWindow extends AbstractWindowFrame {
 
 		// radixSort
 		txfComparacoesRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getComparacoes()));
-		txfTrocasRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getMergeSortModel().getTrocas()));
-		txfTempoRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getTrocas()) + " ms");
+		txfTrocasRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getTrocas()));
+		txfTempoRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getTempo()) + " ms");
 
 		}
 		

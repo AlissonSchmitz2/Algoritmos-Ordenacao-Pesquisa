@@ -26,9 +26,7 @@ public class Principal extends JFrame {
 
 	OrdenacaoSimplesWindow frameOrdenacaoSimples;
 	OrdenacaoSofisticadaWindow frameOrdenacaoSofisticada;
-	PesquisaBinariaWindow framePesquisaBinaria;
-	PesquisaLinearWindow framePesquisaLinear;
-	BogoBuscaWindow frameBogoBusca;
+	AlgoritmosPesquisaWindow frameAlgoritmosPesquisa;
 
 	// private JLabel wallpaper;
 
@@ -118,56 +116,23 @@ public class Principal extends JFrame {
 		menuPesquisa.setFont(getDefaultFont());
 
 		// Opções do menu
-		menuPesquisa.add(getMenuItemBinaria());
-		menuPesquisa.add(getMenuItemLinear());
-		menuPesquisa.add(getMenuItemBogoBusca());
+		menuPesquisa.add(getMenuItemEncontrarNumero());
 
 		return menuPesquisa;
 	}
 
-	private JMenuItem getMenuItemBinaria() {
+	private JMenuItem getMenuItemEncontrarNumero() {
 		JMenuItem menuItem = new JMenuItem();
-		menuItem.setText("Pesquisa Binária");
+		menuItem.setText("Pesquisar um número");
 		menuItem.setFont(getDefaultFont());
 
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				framePesquisaBinaria = new PesquisaBinariaWindow(desktop);
-				abrirFrame(framePesquisaBinaria);
-			}
-		});
-
-		return menuItem;
-	}
-
-	private JMenuItem getMenuItemLinear() {
-		JMenuItem menuItem = new JMenuItem();
-		menuItem.setText("Pesquisa Linear");
-		menuItem.setFont(getDefaultFont());
-
-		menuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				framePesquisaLinear = new PesquisaLinearWindow(desktop);
-				abrirFrame(framePesquisaLinear);			
+				frameAlgoritmosPesquisa = new AlgoritmosPesquisaWindow(desktop);
+				abrirFrame(frameAlgoritmosPesquisa);
 				
 			}
-		});
-
-		return menuItem;
-	}
-
-	private JMenuItem getMenuItemBogoBusca() {
-		JMenuItem menuItem = new JMenuItem();
-		menuItem.setText("Bogo Busca");
-		menuItem.setFont(getDefaultFont());
-
-		menuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				frameBogoBusca = new BogoBuscaWindow(desktop);
-				abrirFrame(frameBogoBusca);			}
 		});
 
 		return menuItem;
@@ -193,7 +158,7 @@ public class Principal extends JFrame {
 
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JOptionPane.showMessageDialog(rootPane, "Alisson Schmitz\n" + "Flávio\nMurilo", "Desenvolvimento",
+				JOptionPane.showMessageDialog(rootPane, "Alisson Schmitz de Medeiros\n" + "Flávio Roberto Porto\nMurilo Behenck Leffa", "Desenvolvimento",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});

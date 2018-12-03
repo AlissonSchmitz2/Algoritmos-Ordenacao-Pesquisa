@@ -23,7 +23,7 @@ public class CountingSort {
 		setarResultados();
 	}
 	
-	private void ordenarElementos(int array[]) {
+	private void ordenarElementos(int[] array) {
 	
 		//Verificar o tempo (ms)
 		tempoInicial = System.currentTimeMillis();
