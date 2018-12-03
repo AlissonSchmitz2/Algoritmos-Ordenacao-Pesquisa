@@ -262,7 +262,7 @@ public class OrdenacaoSimplesWindow extends AbstractWindowFrame {
 		resultadosMetodosSimplesModel.setQtdValores(Integer.valueOf(txfQtValores.getText().trim()));
 		resultadosMetodosSimplesModel.setTempo(cBoxTempo.isSelected());
 		resultadosMetodosSimplesModel.setTrocas(cBoxTrocas.isSelected());
-		//resultadosMetodosSimplesModel.setComparacoes(cBoxComparacoes.isSelected());
+		resultadosMetodosSimplesModel.setComparacoes(cBoxComparacoes.isSelected());
 	}
 
 	private String validarCampos() {

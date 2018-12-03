@@ -34,6 +34,7 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 	
 	private void criarComponentes() {
 
+		if(resultadosMetodosSimplesModel.isComparacoes()) {
 		label = new JLabel("COMPARAÇÕES");
 		label.setBounds(170, 20, 200, 25);
 		getContentPane().add(label);
@@ -44,6 +45,7 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createEtchedBorder());
 		getContentPane().add(painel);
+		}
 		
 		//InsertSort
 		label = new JLabel("Insertion Sort");
@@ -68,6 +70,19 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		label = new JLabel("Resultados obtidos a partir de " + resultadosMetodosSimplesModel.getQtdValores() + " números distribuídos aleatoriamente.");
 		label.setBounds(30, 250, 600, 25);
 		getContentPane().add(label);
+
+		if(resultadosMetodosSimplesModel.isTrocas()) {
+		label = new JLabel("TROCAS");
+		label.setBounds(350, 20, 200, 25);
+		getContentPane().add(label);
+		
+		painel = new JPanel();
+		painel.setBounds(new Rectangle(310, 50, 160, 180));
+		painel.setBackground(Color.WHITE);
+		painel.setLayout(null);
+		painel.setBorder(BorderFactory.createEtchedBorder());
+		getContentPane().add(painel);
+		}
 		
 		txfComparacoesInsert = new JTextField();
 		txfComparacoesInsert.setBounds(30, 20, 100, 25);
@@ -88,17 +103,6 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		txfComparacoesComb.setBounds(30, 125, 100, 25);
 		txfComparacoesComb.setEditable(false);
 		painel.add(txfComparacoesComb);
-
-		label = new JLabel("TROCAS");
-		label.setBounds(350, 20, 200, 25);
-		getContentPane().add(label);
-		
-		painel = new JPanel();
-		painel.setBounds(new Rectangle(310, 50, 160, 180));
-		painel.setBackground(Color.WHITE);
-		painel.setLayout(null);
-		painel.setBorder(BorderFactory.createEtchedBorder());
-		getContentPane().add(painel);
 		
 		txfTrocasInsert = new JTextField();
 		txfTrocasInsert.setBounds(30, 20, 100, 25);
@@ -121,6 +125,7 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		painel.add(txfTrocasComb);
 
 		
+		if(resultadosMetodosSimplesModel.isTempo()) {
 		label = new JLabel("TEMPO");
 		label.setBounds(530, 20, 200, 25);
 		getContentPane().add(label);
@@ -131,6 +136,7 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createEtchedBorder());
 		getContentPane().add(painel);
+		}
 		
 		txfTempoInsert = new JTextField();
 		txfTempoInsert.setBounds(30, 20, 100, 25);

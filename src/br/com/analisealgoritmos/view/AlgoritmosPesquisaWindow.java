@@ -16,7 +16,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.text.MaskFormatter;
 
+import br.com.analisealgoritmos.algoritmos.PesquisaBinaria;
 import br.com.analisealgoritmos.algoritmos.PesquisaLinear;
+import br.com.analisealgoritmos.model.PesquisaBinariaModel;
 import br.com.analisealgoritmos.model.PesquisaLinearModel;
 import br.com.analisealgoritmos.model.ResultadosAlgoritmosPesquisaModel;
 import br.com.analisealgoritmos.result.ResultadosAlgoritmosPesquisaWindow;
@@ -31,6 +33,8 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 	// Algoritmos, model
 	PesquisaLinearModel pesquisaLinearModel;
 	PesquisaLinear pesquisaLinear;
+	PesquisaBinariaModel pesquisaBinariaModel;
+	PesquisaBinaria pesquisaBinaria;
 	
 	// Componentes
 	private JLabel label;
@@ -226,10 +230,16 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 			pesquisaLinear = new PesquisaLinear(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()),Integer.valueOf(txfValorProcurado.getText().trim()), pesquisaLinearModel);
 			resultadosAlgoritmosPesquisaModel.setPesquisaLinearModel(pesquisaLinearModel);
 		}
-
+		
+		if(cBoxPesquisaBinaria != null && cBoxPesquisaBinaria.isSelected()) {
+			pesquisaBinariaModel = new PesquisaBinariaModel();
+			pesquisaBinaria = new PesquisaBinaria(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()),Integer.valueOf(txfValorProcurado.getText().trim()), pesquisaBinariaModel);
+			resultadosAlgoritmosPesquisaModel.setPesquisaBinariaModel(pesquisaBinariaModel);
+		}
+	
 		resultadosAlgoritmosPesquisaModel.setQtdValores(Integer.valueOf(txfQtValores.getText().trim()));
 		resultadosAlgoritmosPesquisaModel.setTempo(cBoxTempo.isSelected());
-		//resultadosAlgoritmosPesquisaModel.setComparacoes(comparacoes);
+		resultadosAlgoritmosPesquisaModel.setComparacoes(cBoxComparacoes.isSelected());
 		
 	}
 
@@ -255,7 +265,12 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 
 					if(cbxCaso.getSelectedItem().equals("-Selecione-")) {
 					return "Selecione o caso para gerar!";	
-					}		
+					}
+						if(cBoxPesquisaBinaria.isSelected() &&
+						   cbxCaso.getSelectedItem().equals("Caso Médio") ||
+						   cbxCaso.getSelectedItem().equals("Pior Caso")) {
+						return "A pesquisa binária só poderá ser utilizada com o Melhor Caso, pois ele pressupõe de que o vetor está ordenado!";
+						}
 			
 		return "";
 	}

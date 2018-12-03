@@ -4,6 +4,7 @@ public class ResultadosAlgoritmosPesquisaModel {
 	
 	//Algoritmos
 	PesquisaLinearModel pesquisaLinearModel;
+	PesquisaBinariaModel pesquisaBinariaModel;
 	
 	//Valores.
 	private int qtdValores;
@@ -12,6 +13,14 @@ public class ResultadosAlgoritmosPesquisaModel {
 	private boolean tempo, comparacoes;
 	
 	public ResultadosAlgoritmosPesquisaModel() {	 
+	}
+	
+	public PesquisaBinariaModel getPesquisaBinariaModel() {
+		return pesquisaBinariaModel;
+	}
+
+	public void setPesquisaBinariaModel(PesquisaBinariaModel pesquisaBinariaModel) {
+		this.pesquisaBinariaModel = pesquisaBinariaModel;
 	}
 
 	public PesquisaLinearModel getPesquisaLinearModel() {

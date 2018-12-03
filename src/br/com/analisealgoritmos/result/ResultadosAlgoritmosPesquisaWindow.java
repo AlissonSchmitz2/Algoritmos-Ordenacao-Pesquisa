@@ -139,5 +139,14 @@ public class ResultadosAlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		
 		}
 		
+		if(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel() != null) {
+			
+		// Pesquisa Binária
+		txfComparacoesBinaria.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel().getComparacoes()));
+		txfPosicaoBinaria.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel().getIndiceValor()));
+		txfTempoBinaria.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel().getTempo()) + " ms");
+		
+		}
+		
 	}
 }
