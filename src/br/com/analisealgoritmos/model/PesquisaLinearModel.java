@@ -1,39 +1,33 @@
 package br.com.analisealgoritmos.model;
 
-public class QuickSortModel {
-	
-	private int trocas, comparacoes;
+public class PesquisaLinearModel {
+	private int indiceValor, comparacoes;
 	private long tempo;
 	
-	public QuickSortModel(int trocas, int comparacoes, long tempo) {
-		this.trocas = trocas;
+	public PesquisaLinearModel(int indiceValor, int comparacoes, long tempo) {
+		this.indiceValor = indiceValor;
 		this.comparacoes = comparacoes;
 		this.tempo = tempo;
 	}
 	
-	public QuickSortModel() {
+	public PesquisaLinearModel() {
 	}
 	
-	public int getTrocas() {
-		return trocas;
+	public int getIndiceValor() {
+		return indiceValor;
 	}
-	
-	public void setTrocas(int trocas) {
-		this.trocas = trocas;
+	public void setIndiceValor(int indiceValor) {
+		this.indiceValor = indiceValor;
 	}
-	
 	public int getComparacoes() {
 		return comparacoes;
 	}
-	
 	public void setComparacoes(int comparacoes) {
 		this.comparacoes = comparacoes;
 	}
-	
 	public long getTempo() {
 		return tempo;
 	}
-	
 	public void setTempo(long tempo) {
 		this.tempo = tempo;
 	}

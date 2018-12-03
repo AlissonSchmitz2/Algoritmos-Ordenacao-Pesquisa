@@ -306,9 +306,7 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 					if(cbxCaso.getSelectedItem().equals("-Selecione-")) {
 					return "Selecione o caso para gerar!";	
 					}
-							
 			
-		//limparCampos();
 		return "";
 	}
 	

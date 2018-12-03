@@ -16,38 +16,26 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.text.MaskFormatter;
 
-import br.com.analisealgoritmos.algoritmos.BubbleSort;
-import br.com.analisealgoritmos.algoritmos.CombSort;
-import br.com.analisealgoritmos.algoritmos.InsertionSort;
-import br.com.analisealgoritmos.algoritmos.SelectionSort;
-import br.com.analisealgoritmos.model.BubbleSortModel;
-import br.com.analisealgoritmos.model.CombSortModel;
-import br.com.analisealgoritmos.model.InsertionSortModel;
-import br.com.analisealgoritmos.model.ResultadosMetodosSimplesModel;
-import br.com.analisealgoritmos.model.SelectionSortModel;
-import br.com.analisealgoritmos.result.ResultadosMetodosSimplesWindow;
+import br.com.analisealgoritmos.algoritmos.PesquisaLinear;
+import br.com.analisealgoritmos.model.PesquisaLinearModel;
+import br.com.analisealgoritmos.model.ResultadosAlgoritmosPesquisaModel;
+import br.com.analisealgoritmos.result.ResultadosAlgoritmosPesquisaWindow;
 
 public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 
 	private static final long serialVersionUID = -1784311409434050599L;
 
 	// Resultados
-	ResultadosMetodosSimplesModel resultadosMetodosSimplesModel;
+	ResultadosAlgoritmosPesquisaModel resultadosAlgoritmosPesquisaModel;
 	
 	// Algoritmos, model
-	InsertionSort insertionSort;
-	InsertionSortModel insertionSortModel;
-	SelectionSort selectionSort;
-	SelectionSortModel selectionSortModel;
-	BubbleSort bubbleSort;
-	BubbleSortModel bubbleSortModel;
-	CombSort combSort;
-	CombSortModel combSortModel;
+	PesquisaLinearModel pesquisaLinearModel;
+	PesquisaLinear pesquisaLinear;
 	
 	// Componentes
 	private JLabel label;
 	private JFormattedTextField txfQtValores, txfValorProcurado;
-	private JButton bntGerar, bntLimpar;
+	private JButton bntGerar, bntLimpar, bntTeste;
 	private JPanel painel;
 
 	// Checkbox dos algoritmos e atributos
@@ -196,6 +184,24 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 			}
 		});
 		
+		bntTeste = new JButton("TESTE");
+		bntTeste.setBounds(260, 350, 200, 25);
+		bntTeste.setToolTipText("Limpar campos");
+		getContentPane().add(bntTeste);
+		bntTeste.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				cBoxPesquisaLinear.setSelected(true);
+				cBoxPesquisaBinaria.setSelected(true);
+				cBoxBogoBusca.setSelected(true);
+				cBoxTempo.setSelected(true);
+				cBoxComparacoes.setSelected(true);
+				txfQtValores.setText("999");
+				txfValorProcurado.setText("55");
+				cbxCaso.setSelectedIndex(3);
+			}
+		});
+		
 	}
 
 	private void gerarRelatorio() {
@@ -207,24 +213,23 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		algoritmosSelecionados();
 		
 		//Abrir o frame de resultados caso estejam marcadas as opções 
-		//ResultadosMetodosSimplesWindow resultadosMetodosSimplesWindow = new ResultadosMetodosSimplesWindow(resultadosMetodosSimplesModel);
-		//abrirFrame(resultadosMetodosSimplesWindow);	
+		ResultadosAlgoritmosPesquisaWindow resultadosAlgoritmosPesquisaWindow = new ResultadosAlgoritmosPesquisaWindow(resultadosAlgoritmosPesquisaModel);
+		abrirFrame(resultadosAlgoritmosPesquisaWindow);	
 	}
 	
 	private void algoritmosSelecionados(){
 		
-		//resultadosMetodosSimplesModel = new ResultadosMetodosSimplesModel();
+		resultadosAlgoritmosPesquisaModel = new ResultadosAlgoritmosPesquisaModel();
 		
-		
-/*		if(cBoxCombSort != null && cBoxCombSort.isSelected()) {
-			combSortModel = new CombSortModel();
-			combSort = new CombSort(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()), combSortModel);
-			resultadosMetodosSimplesModel.setCombSortModel(combSortModel);
+		if(cBoxPesquisaLinear != null && cBoxPesquisaLinear.isSelected()) {
+			pesquisaLinearModel = new PesquisaLinearModel();
+			pesquisaLinear = new PesquisaLinear(cbxCaso.getSelectedIndex(), Integer.valueOf(txfQtValores.getText().trim()),Integer.valueOf(txfValorProcurado.getText().trim()), pesquisaLinearModel);
+			resultadosAlgoritmosPesquisaModel.setPesquisaLinearModel(pesquisaLinearModel);
 		}
 
-		resultadosMetodosSimplesModel.setQtdValores(Integer.valueOf(txfQtValores.getText().trim()));
-		resultadosMetodosSimplesModel.setTempo(cBoxTempo.isSelected());
-		resultadosMetodosSimplesModel.setTrocas(cBoxTrocas.isSelected());*/
+		resultadosAlgoritmosPesquisaModel.setQtdValores(Integer.valueOf(txfQtValores.getText().trim()));
+		resultadosAlgoritmosPesquisaModel.setTempo(cBoxTempo.isSelected());
+		//resultadosAlgoritmosPesquisaModel.setComparacoes(comparacoes);
 		
 	}
 
@@ -252,7 +257,6 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 					return "Selecione o caso para gerar!";	
 					}		
 			
-		//limparCampos();
 		return "";
 	}
 
