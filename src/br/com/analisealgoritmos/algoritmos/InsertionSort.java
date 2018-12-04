@@ -27,9 +27,9 @@ public class InsertionSort {
 		//Verificar o tempo (ms)
 		tempoInicial = System.currentTimeMillis();
 		
-		int i, j, k, aux;
+		int i, j, k, aux, tamanhoArray = elementos.length;
 
-		for (i = 1; i < elementos.length; i++) {
+		for (i = 1; i < tamanhoArray; i++) {
 			j = i - 1;
 			aux = elementos[i];
 			k = 0;

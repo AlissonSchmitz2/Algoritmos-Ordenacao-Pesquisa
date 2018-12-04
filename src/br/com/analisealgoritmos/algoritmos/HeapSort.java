@@ -28,11 +28,13 @@ public class HeapSort {
 		//Verificar o tempo (ms)
 		tempoInicial = System.currentTimeMillis();
 		
-		for (i = elementos.length / 2 - 1; i >= 0; i--) {
+		int tamanhoArray = elementos.length;
+		
+		for (i = tamanhoArray / 2 - 1; i >= 0; i--) {
 		heapify(elementos, elementos.length, i);
 		}
 		
-		for (i = elementos.length - 1; i >= 0; i--) {
+		for (i = tamanhoArray - 1; i >= 0; i--) {
 		int temp = elementos[0];
 		elementos[0] = elementos[i];
 		elementos[i] = temp;

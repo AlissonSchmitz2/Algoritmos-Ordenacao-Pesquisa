@@ -89,16 +89,16 @@ public class ResultadosMetodosSofisticadosWindow extends AbstractWindowFrame {
 		txfComparacoesHeap.setBounds(30, 90, 100, 25);
 		txfComparacoesHeap.setEditable(false);
 		painel.add(txfComparacoesHeap);
-		
-		txfComparacoesQuick = new JTextField();
-		txfComparacoesQuick.setBounds(30, 125, 100, 25);
-		txfComparacoesQuick.setEditable(false);
-		painel.add(txfComparacoesQuick);
-		
+
 		txfComparacoesCounting = new JTextField();
-		txfComparacoesCounting.setBounds(30, 160, 100, 25);
+		txfComparacoesCounting.setBounds(30, 125, 100, 25);
 		txfComparacoesCounting.setEditable(false);
 		painel.add(txfComparacoesCounting);
+		
+		txfComparacoesQuick = new JTextField();
+		txfComparacoesQuick.setBounds(30, 160, 100, 25);
+		txfComparacoesQuick.setEditable(false);
+		painel.add(txfComparacoesQuick);
 		
 		label = new JLabel("TROCAS");
 		label.setBounds(350, 20, 200, 25);
@@ -126,15 +126,15 @@ public class ResultadosMetodosSofisticadosWindow extends AbstractWindowFrame {
 		txfTrocasHeap.setEditable(false);
 		painel.add(txfTrocasHeap);
 
-		txfTrocasQuick = new JTextField();
-		txfTrocasQuick.setBounds(30, 125, 100, 25);
-		txfTrocasQuick.setEditable(false);
-		painel.add(txfTrocasQuick);
-
 		txfTrocasCounting = new JTextField();
-		txfTrocasCounting.setBounds(30, 160, 100, 25);
+		txfTrocasCounting.setBounds(30, 125, 100, 25);
 		txfTrocasCounting.setEditable(false);
 		painel.add(txfTrocasCounting);
+		
+		txfTrocasQuick = new JTextField();
+		txfTrocasQuick.setBounds(30, 160, 100, 25);
+		txfTrocasQuick.setEditable(false);
+		painel.add(txfTrocasQuick);
 		
 		label = new JLabel("TEMPO");
 		label.setBounds(530, 20, 200, 25);
@@ -162,15 +162,15 @@ public class ResultadosMetodosSofisticadosWindow extends AbstractWindowFrame {
 		txfTempoHeap.setEditable(false);
 		painel.add(txfTempoHeap);
 		
-		txfTempoQuick = new JTextField();
-		txfTempoQuick.setBounds(30, 125, 100, 25);
-		txfTempoQuick.setEditable(false);
-		painel.add(txfTempoQuick);
-
 		txfTempoCounting = new JTextField();
-		txfTempoCounting.setBounds(30, 160, 100, 25);
+		txfTempoCounting.setBounds(30, 125, 100, 25);
 		txfTempoCounting.setEditable(false);
 		painel.add(txfTempoCounting);
+		
+		txfTempoQuick = new JTextField();
+		txfTempoQuick.setBounds(30, 160, 100, 25);
+		txfTempoQuick.setEditable(false);
+		painel.add(txfTempoQuick);
 		
 		// Quantidade de comparações
 		if(resultadosMetodosSofisticadosModel.isComparacoes()) {

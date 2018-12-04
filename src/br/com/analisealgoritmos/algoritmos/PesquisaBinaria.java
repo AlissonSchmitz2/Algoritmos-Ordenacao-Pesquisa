@@ -35,11 +35,11 @@ public class PesquisaBinaria {
 		while (inf <= sup) {
 			meio = (inf + sup) / 2;
 			comparacoes++;
-			if (valorProcurado == elementos[meio]) {
-			indiceValor = meio;
-			break;
-			}
-			
+				if (valorProcurado == elementos[meio]) {
+				indiceValor = meio;
+				break;
+				}
+				
 			if (valorProcurado < elementos[meio]) {
 			sup = meio - 1;
 			} else {

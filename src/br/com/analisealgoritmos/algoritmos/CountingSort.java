@@ -27,9 +27,9 @@ public class CountingSort {
 	
 		//Verificar o tempo (ms)
 		tempoInicial = System.currentTimeMillis();
-
-		int maior = array[0];
-			for (int i = 1; i < array.length; i++) {
+		
+		int maior = array[0], i;
+			for (i = 1; i < array.length; i++) {
 			comparacoes++;
 				
 				if (array[i] > maior) {
@@ -38,37 +38,37 @@ public class CountingSort {
 			}
 
 		int[] c = new int[maior];
-			for (int i = 0; i < array.length; i++) {
+			for (i = 0; i < array.length; i++) {
 				try {
-					c[array[i] - 1] += 1;
+				c[array[i] - 1] += 1;
 				} catch (Exception e) {
 					break;
-				}
+					}
 			}
 
-		for (int i = 1; i < maior; i++) {
+		for (i = 1; i < maior; i++) {
 		trocas++;
 		c[i] += c[i - 1];
 		}
 
-		Integer[] b = new Integer[array.length];
-		for (int i = 0; i < b.length; i++) {
+		int[] b = new int[array.length];
+		for (i = 0; i < b.length; i++) {
 			try {
 				b[c[array[i] - 1] - 1] = array[i];
 				c[array[i] - 1]--;
 				} catch (Exception e) {
 					break;
-				}
+					}
 			}
 
-		for (int i = 0; i < b.length; i++) {
+		for (i = 0; i < b.length; i++) {
 			try {
-				array[i] = b[i];
+			array[i] = b[i];
 			} catch (Exception e) {
-			break;
-			}
-
+				break;
+				}
 		}	
+
 	}
 	
 	private void setarResultados(){

@@ -59,10 +59,9 @@ public class QuickSort {
 			 
 		 if (i < fim) {
 		 ordenarElementos(array,i,fim);
-		 }
+		 }	 
 	}
 
-	
 	private void setarResultados(){
 		quickSortModel.setComparacoes(comparacoes);
 		quickSortModel.setTrocas(trocas);

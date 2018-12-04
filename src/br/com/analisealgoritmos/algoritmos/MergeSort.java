@@ -32,7 +32,7 @@ public class MergeSort {
 
 		// Caso for menor que 2, não é possivel executar o algoritmo
 		if (num_elementos < 2) {
-			return;
+		return;
 		}
 		
 		int meio = num_elementos / 2;
@@ -40,11 +40,11 @@ public class MergeSort {
 		int[] direita = new int[num_elementos - meio];
 
 		for (i = 0; i < meio; i++) {
-			esquerda[i] = elementos[i];
+		esquerda[i] = elementos[i];
 		}
 		
 		for (i = meio; i < num_elementos; i++) {
-			direita[i - meio] = elementos[i];
+		direita[i - meio] = elementos[i];
 		}
 		
 		ordenarElementos(esquerda, meio);
