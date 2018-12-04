@@ -111,18 +111,18 @@ public class ResultadosAlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		if(resultadosAlgoritmosPesquisaModel.getPesquisaLinearModel() != null) {
 		
 		// Pesquisa Linear
-		txfComparacoesLinear.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaLinearModel().getComparacoes()));
+		txfComparacoesLinear.setText(!resultadosAlgoritmosPesquisaModel.isComparacoes() ? "" : String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaLinearModel().getComparacoes()));
 		txfPosicaoLinear.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaLinearModel().getIndiceValor()));
-		txfTempoLinear.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaLinearModel().getTempo()) + " ms");
+		txfTempoLinear.setText(!resultadosAlgoritmosPesquisaModel.isTempo() ? "" : String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaLinearModel().getTempo()) + " ms");
 		
 		}
 		
 		if(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel() != null) {
 			
 		// Pesquisa Binária
-		txfComparacoesBinaria.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel().getComparacoes()));
+		txfComparacoesBinaria.setText(!resultadosAlgoritmosPesquisaModel.isComparacoes() ? "" : String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel().getComparacoes()));
 		txfPosicaoBinaria.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel().getIndiceValor()));
-		txfTempoBinaria.setText(String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel().getTempo()) + " ms");
+		txfTempoBinaria.setText(!resultadosAlgoritmosPesquisaModel.isTempo() ? "" : String.valueOf(resultadosAlgoritmosPesquisaModel.getPesquisaBinariaModel().getTempo()) + " ms");
 		
 		}
 		

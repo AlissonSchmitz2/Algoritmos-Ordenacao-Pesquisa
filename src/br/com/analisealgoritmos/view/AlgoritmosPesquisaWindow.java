@@ -155,7 +155,7 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		cbxCaso.setBounds(260, 230, 200, 25);
 		cbxCaso.setToolTipText("Informe o caso");
 		getContentPane().add(cbxCaso);
-
+		
 		bntGerar = new JButton("GERAR");
 		bntGerar.setBounds(30, 290, 200, 25);
 		bntGerar.setToolTipText("Gerar relatório");
@@ -182,10 +182,15 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 
 	private void gerarRelatorio() {
 		if (!validarCampos().equals("")) {
-			JOptionPane.showMessageDialog(rootPane, validarCampos(), "Alerta", JOptionPane.WARNING_MESSAGE);
-			return;
+		JOptionPane.showMessageDialog(rootPane, validarCampos(), "Alerta", JOptionPane.WARNING_MESSAGE);
+			
+			if(cBoxPesquisaBinaria.isSelected()) {
+			cbxCaso.setSelectedIndex(1);
+			}
+			
+		return;
 		}
-		
+
 		algoritmosSelecionados();
 		
 		//Abrir o frame de resultados caso estejam marcadas as opções 
@@ -239,9 +244,12 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 					}
 						if(cBoxPesquisaBinaria.isSelected() &&
 						   cbxCaso.getSelectedItem().equals("Caso Médio") ||
-						   cbxCaso.getSelectedItem().equals("Pior Caso")) {
+						   cbxCaso.getSelectedItem().equals("Pior Caso")) {	
 						return "A pesquisa binária só poderá ser utilizada com o Melhor Caso, pois ele pressupõe de que o vetor está ordenado!";
 						}
+							if(Integer.valueOf(txfValorProcurado.getText().trim()) > Integer.valueOf(txfQtValores.getText().trim())) {
+							return "O valor procurado é maior que a quantidade de números!";
+							}
 			
 		return "";
 	}

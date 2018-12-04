@@ -34,7 +34,6 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 	
 	private void criarComponentes() {
 
-		if(resultadosMetodosSimplesModel.isComparacoes()) {
 		label = new JLabel("COMPARAÇÕES");
 		label.setBounds(170, 20, 200, 25);
 		getContentPane().add(label);
@@ -45,7 +44,6 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createEtchedBorder());
 		getContentPane().add(painel);
-		}
 		
 		//InsertSort
 		label = new JLabel("Insertion Sort");
@@ -71,18 +69,9 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		label.setBounds(30, 250, 600, 25);
 		getContentPane().add(label);
 
-		if(resultadosMetodosSimplesModel.isTrocas()) {
 		label = new JLabel("TROCAS");
 		label.setBounds(350, 20, 200, 25);
 		getContentPane().add(label);
-		
-		painel = new JPanel();
-		painel.setBounds(new Rectangle(310, 50, 160, 180));
-		painel.setBackground(Color.WHITE);
-		painel.setLayout(null);
-		painel.setBorder(BorderFactory.createEtchedBorder());
-		getContentPane().add(painel);
-		}
 		
 		txfComparacoesInsert = new JTextField();
 		txfComparacoesInsert.setBounds(30, 20, 100, 25);
@@ -104,6 +93,13 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		txfComparacoesComb.setEditable(false);
 		painel.add(txfComparacoesComb);
 		
+		painel = new JPanel();
+		painel.setBounds(new Rectangle(310, 50, 160, 180));
+		painel.setBackground(Color.WHITE);
+		painel.setLayout(null);
+		painel.setBorder(BorderFactory.createEtchedBorder());
+		getContentPane().add(painel);
+		
 		txfTrocasInsert = new JTextField();
 		txfTrocasInsert.setBounds(30, 20, 100, 25);
 		txfTrocasInsert.setEditable(false);
@@ -124,8 +120,6 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		txfTrocasComb.setEditable(false);
 		painel.add(txfTrocasComb);
 
-		
-		if(resultadosMetodosSimplesModel.isTempo()) {
 		label = new JLabel("TEMPO");
 		label.setBounds(530, 20, 200, 25);
 		getContentPane().add(label);
@@ -136,7 +130,6 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createEtchedBorder());
 		getContentPane().add(painel);
-		}
 		
 		txfTempoInsert = new JTextField();
 		txfTempoInsert.setBounds(30, 20, 100, 25);
@@ -158,42 +151,68 @@ public class ResultadosMetodosSimplesWindow extends AbstractWindowFrame{
 		txfTempoComb.setEditable(false);
 		painel.add(txfTempoComb);
 		
+		// Quantidade de comparações
+		if(resultadosMetodosSimplesModel.isComparacoes()) {
+			
+			if(resultadosMetodosSimplesModel.getInsertionSortModel() != null) {
+			txfComparacoesInsert.setText(String.valueOf(resultadosMetodosSimplesModel.getInsertionSortModel().getComparacoes()));
+			}
+			
+			if(resultadosMetodosSimplesModel.getSelectionSortModel() != null) {
+			txfComparacoesSelect.setText(String.valueOf(resultadosMetodosSimplesModel.getSelectionSortModel().getComparacoes()));
+			}
+			
+			if(resultadosMetodosSimplesModel.getBubbleSortModel() != null) {
+			txfComparacoesBubble.setText(String.valueOf(resultadosMetodosSimplesModel.getBubbleSortModel().getComparacoes()));
+			}
+			
+			if(resultadosMetodosSimplesModel.getCombSortModel() != null) {
+			txfComparacoesComb.setText(String.valueOf(resultadosMetodosSimplesModel.getCombSortModel().getComparacoes()));
+			}
+			
+		}
+			
+		// Quantidade de trocas
+		if(resultadosMetodosSimplesModel.isTrocas()) {
+			
+			if(resultadosMetodosSimplesModel.getInsertionSortModel() != null) {
+			txfTrocasInsert.setText(String.valueOf(resultadosMetodosSimplesModel.getInsertionSortModel().getTrocas()));
+			}
+			
+			if(resultadosMetodosSimplesModel.getSelectionSortModel() != null) {
+			txfTrocasSelect.setText(String.valueOf(resultadosMetodosSimplesModel.getSelectionSortModel().getTrocas()));
+			}
+			
+			if(resultadosMetodosSimplesModel.getBubbleSortModel() != null) {
+			txfTrocasBubble.setText(String.valueOf(resultadosMetodosSimplesModel.getBubbleSortModel().getTrocas()));
+			}
+			
+			if(resultadosMetodosSimplesModel.getCombSortModel() != null) {
+			txfTrocasComb.setText(String.valueOf(resultadosMetodosSimplesModel.getCombSortModel().getTrocas()));
+			}
+			
+		}
 		
-		if(resultadosMetodosSimplesModel.getInsertionSortModel() != null) {
-		
-		// insertSort
-		txfComparacoesInsert.setText(String.valueOf(resultadosMetodosSimplesModel.getInsertionSortModel().getComparacoes()));
-		txfTrocasInsert.setText(String.valueOf(resultadosMetodosSimplesModel.getInsertionSortModel().getTrocas()));
-		txfTempoInsert.setText(String.valueOf(resultadosMetodosSimplesModel.getInsertionSortModel().getTempo()) + " ms");
-		
+		// Tempos
+		if(resultadosMetodosSimplesModel.isTempo()) {
+			
+			if(resultadosMetodosSimplesModel.getInsertionSortModel() != null) {
+			txfTempoInsert.setText(String.valueOf(resultadosMetodosSimplesModel.getInsertionSortModel().getTempo()) + " ms");
+			}
+			
+			if(resultadosMetodosSimplesModel.getSelectionSortModel() != null) {
+			txfTempoSelect.setText(String.valueOf(resultadosMetodosSimplesModel.getSelectionSortModel().getTempo()) + " ms");
+			}
+			
+			if(resultadosMetodosSimplesModel.getBubbleSortModel() != null) {
+			txfTempoBubble.setText(String.valueOf(resultadosMetodosSimplesModel.getBubbleSortModel().getTempo()) + " ms");
+			}
+			
+			if(resultadosMetodosSimplesModel.getCombSortModel() != null) {
+			txfTempoComb.setText(String.valueOf(resultadosMetodosSimplesModel.getCombSortModel().getTempo()) + " ms");
+			}
+			
 		}
 
-		if(resultadosMetodosSimplesModel.getSelectionSortModel() != null) {
-		
-		// selectionSort
-		txfComparacoesSelect.setText(String.valueOf(resultadosMetodosSimplesModel.getSelectionSortModel().getComparacoes()));
-		txfTrocasSelect.setText(String.valueOf(resultadosMetodosSimplesModel.getSelectionSortModel().getTrocas()));
-		txfTempoSelect.setText(String.valueOf(resultadosMetodosSimplesModel.getSelectionSortModel().getTempo()) + " ms");
-
-		}
-		
-		if(resultadosMetodosSimplesModel.getBubbleSortModel() != null) {
-		
-		// bubbleSort
-		txfComparacoesBubble.setText(String.valueOf(resultadosMetodosSimplesModel.getBubbleSortModel().getComparacoes()));
-		txfTrocasBubble.setText(String.valueOf(resultadosMetodosSimplesModel.getBubbleSortModel().getTrocas()));
-		txfTempoBubble.setText(String.valueOf(resultadosMetodosSimplesModel.getBubbleSortModel().getTempo()) + " ms");
-		
-		}
-		
-		if(resultadosMetodosSimplesModel.getCombSortModel() != null) {
-		
-		// combSort
-		txfComparacoesComb.setText(String.valueOf(resultadosMetodosSimplesModel.getCombSortModel().getComparacoes()));
-		txfTrocasComb.setText(String.valueOf(resultadosMetodosSimplesModel.getCombSortModel().getTrocas()));
-		txfTempoComb.setText(String.valueOf(resultadosMetodosSimplesModel.getCombSortModel().getTempo()) + " ms");
-		
-		}
-		
 	}	
 }

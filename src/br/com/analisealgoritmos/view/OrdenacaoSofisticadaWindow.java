@@ -282,7 +282,7 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 		resultadosMetodosSofisticadosModel.setQtdValores(Integer.valueOf(txfQtValores.getText().trim()));
 		resultadosMetodosSofisticadosModel.setTempo(cBoxTempo.isSelected());
 		resultadosMetodosSofisticadosModel.setTrocas(cBoxTrocas.isSelected());
-		
+		resultadosMetodosSofisticadosModel.setComparacoes(cBoxComparacoes.isSelected());
 	}
 
 	private String validarCampos() {

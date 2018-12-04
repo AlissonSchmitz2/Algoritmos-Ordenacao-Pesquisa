@@ -172,50 +172,80 @@ public class ResultadosMetodosSofisticadosWindow extends AbstractWindowFrame {
 		txfTempoCounting.setEditable(false);
 		painel.add(txfTempoCounting);
 		
-		if (resultadosMetodosSofisticadosModel.getMergeSortModel() != null) {
-
-		// mergeSort
-		txfComparacoesMerge.setText(String.valueOf(resultadosMetodosSofisticadosModel.getMergeSortModel().getComparacoes()));
-		txfTrocasMerge.setText(String.valueOf(resultadosMetodosSofisticadosModel.getMergeSortModel().getTrocas()));
-		txfTempoMerge.setText(String.valueOf(resultadosMetodosSofisticadosModel.getMergeSortModel().getTempo()) + " ms");
+		// Quantidade de comparações
+		if(resultadosMetodosSofisticadosModel.isComparacoes()) {
+			
+			if(resultadosMetodosSofisticadosModel.getMergeSortModel() != null) {
+			txfComparacoesMerge.setText(String.valueOf(resultadosMetodosSofisticadosModel.getMergeSortModel().getComparacoes()));
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getRadixSortModel() != null) {
+			txfComparacoesRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getComparacoes()));
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getHeapSortModel() != null) {
+			txfComparacoesHeap.setText(String.valueOf(resultadosMetodosSofisticadosModel.getHeapSortModel().getComparacoes()));
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getQuickSortModel() != null) {
+			txfComparacoesQuick.setText(String.valueOf(resultadosMetodosSofisticadosModel.getQuickSortModel().getComparacoes()));
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getCountingSortModel() != null) {
+			txfComparacoesCounting.setText(String.valueOf(resultadosMetodosSofisticadosModel.getCountingSortModel().getComparacoes()));
+			}
+			
+		}
+		
+		// Quantidade de Trocas
+		if(resultadosMetodosSofisticadosModel.isTrocas()) {
+			
+			if(resultadosMetodosSofisticadosModel.getMergeSortModel() != null) {
+			txfTrocasMerge.setText(String.valueOf(resultadosMetodosSofisticadosModel.getMergeSortModel().getTrocas()));
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getRadixSortModel() != null) {
+			txfTrocasRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getTrocas()));
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getHeapSortModel() != null) {
+			txfTrocasHeap.setText(String.valueOf(resultadosMetodosSofisticadosModel.getHeapSortModel().getTrocas()));
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getQuickSortModel() != null) {
+			txfTrocasQuick.setText(String.valueOf(resultadosMetodosSofisticadosModel.getQuickSortModel().getTrocas()));
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getCountingSortModel() != null) {
+			txfTrocasCounting.setText(String.valueOf(resultadosMetodosSofisticadosModel.getCountingSortModel().getTrocas()));
+			}
 			
 		}
 
-		if (resultadosMetodosSofisticadosModel.getRadixSortModel() != null) {
-
-		// radixSort
-		txfComparacoesRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getComparacoes()));
-		txfTrocasRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getTrocas()));
-		txfTempoRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getTempo()) + " ms");
-
+		// Tempos
+		if(resultadosMetodosSofisticadosModel.isTempo()) {
+			
+			if(resultadosMetodosSofisticadosModel.getMergeSortModel() != null) {
+			txfTempoMerge.setText(String.valueOf(resultadosMetodosSofisticadosModel.getMergeSortModel().getTempo()) + " ms");
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getRadixSortModel() != null) {
+			txfTempoRadix.setText(String.valueOf(resultadosMetodosSofisticadosModel.getRadixSortModel().getTempo()) + " ms");
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getHeapSortModel() != null) {
+			txfTempoHeap.setText(String.valueOf(resultadosMetodosSofisticadosModel.getHeapSortModel().getTempo()) + " ms");
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getQuickSortModel() != null) {
+			txfTempoQuick.setText(String.valueOf(resultadosMetodosSofisticadosModel.getQuickSortModel().getTempo()) + " ms");
+			}
+			
+			if(resultadosMetodosSofisticadosModel.getCountingSortModel() != null) {
+			txfTempoCounting.setText(String.valueOf(resultadosMetodosSofisticadosModel.getCountingSortModel().getTempo()) + " ms");
+			}
+			
 		}
-		
-		if (resultadosMetodosSofisticadosModel.getHeapSortModel() != null) {
-
-		// heapSort
-		txfComparacoesHeap.setText(String.valueOf(resultadosMetodosSofisticadosModel.getHeapSortModel().getComparacoes()));
-		txfTrocasHeap.setText(String.valueOf(resultadosMetodosSofisticadosModel.getHeapSortModel().getTrocas()));
-		txfTempoHeap.setText(String.valueOf(resultadosMetodosSofisticadosModel.getHeapSortModel().getTempo()) + " ms");
-
-		}
-		
-		if (resultadosMetodosSofisticadosModel.getQuickSortModel() != null) {
-
-		// quickSort
-		txfComparacoesQuick.setText(String.valueOf(resultadosMetodosSofisticadosModel.getQuickSortModel().getComparacoes()));
-		txfTrocasQuick.setText(String.valueOf(resultadosMetodosSofisticadosModel.getQuickSortModel().getTrocas()));
-		txfTempoQuick.setText(String.valueOf(resultadosMetodosSofisticadosModel.getQuickSortModel().getTempo()) + " ms");
-		
-		}
-		
-		if (resultadosMetodosSofisticadosModel.getCountingSortModel() != null) {
-
-		// countingSort
-		txfComparacoesCounting.setText(String.valueOf(resultadosMetodosSofisticadosModel.getCountingSortModel().getComparacoes()));
-		txfTrocasCounting.setText(String.valueOf(resultadosMetodosSofisticadosModel.getCountingSortModel().getTrocas()));
-		txfTempoCounting.setText(String.valueOf(resultadosMetodosSofisticadosModel.getCountingSortModel().getTempo()) + " ms");
-
-		}
-		
+				
 	}
 }
