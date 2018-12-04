@@ -39,11 +39,11 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 	// Componentes
 	private JLabel label;
 	private JFormattedTextField txfQtValores, txfValorProcurado;
-	private JButton bntGerar, bntLimpar, bntTeste;
+	private JButton bntGerar, bntLimpar;
 	private JPanel painel;
 
 	// Checkbox dos algoritmos e atributos
-	private JCheckBox cBoxPesquisaLinear, cBoxPesquisaBinaria, cBoxBogoBusca;
+	private JCheckBox cBoxPesquisaLinear, cBoxPesquisaBinaria;
 	private JCheckBox cBoxTempo, cBoxComparacoes;
 
 	// Combo de casos
@@ -63,7 +63,7 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 
 		// PAINEL DE ALGORITMOS
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(30, 50, 200, 150));
+		painel.setBounds(new Rectangle(30, 50, 200, 90));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createTitledBorder("Algoritmos"));
@@ -89,19 +89,9 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		label.setBounds(32, 50, 200, 25);
 		painel.add(label);
 
-		// CheckBox Bogo Busca.
-		cBoxBogoBusca = new JCheckBox();
-		cBoxBogoBusca.setBackground(Color.WHITE);
-		cBoxBogoBusca.setBounds(10, 80, 20, 25);
-		painel.add(cBoxBogoBusca);
-
-		label = new JLabel("Bogo Busca");
-		label.setBounds(32, 80, 200, 25);
-		painel.add(label);
-
 		/* PAINEL DE ATRIBUTOS */
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(260, 50, 200, 90));
+		painel.setBounds(new Rectangle(30, 170, 200, 90));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createTitledBorder("Atributos"));
@@ -130,22 +120,22 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		try {
 
 			label = new JLabel("Quantidade de Valores:");
-			label.setBounds(260, 150, 250, 25);
+			label.setBounds(260, 50, 250, 25);
 			getContentPane().add(label);
 
 			txfQtValores = new JFormattedTextField(new MaskFormatter("##########"));
 			txfQtValores.setFocusLostBehavior(JFormattedTextField.COMMIT);
-			txfQtValores.setBounds(260, 170, 200, 25);
+			txfQtValores.setBounds(260, 70, 200, 25);
 			txfQtValores.setToolTipText("Informe a quantidade de valores");
 			getContentPane().add(txfQtValores);
 			
 			label = new JLabel("Valor Procurado:");
-			label.setBounds(30, 210, 250, 25);
+			label.setBounds(260, 130, 250, 25);
 			getContentPane().add(label);
 
 			txfValorProcurado = new JFormattedTextField(new MaskFormatter("##########"));
 			txfValorProcurado.setFocusLostBehavior(JFormattedTextField.COMMIT);
-			txfValorProcurado.setBounds(30, 230, 200, 25);
+			txfValorProcurado.setBounds(260, 150, 200, 25);
 			txfValorProcurado.setToolTipText("Informe o valor para ser encontrado");
 			getContentPane().add(txfValorProcurado);
 			
@@ -188,24 +178,6 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 			}
 		});
 		
-		bntTeste = new JButton("TESTE");
-		bntTeste.setBounds(260, 350, 200, 25);
-		bntTeste.setToolTipText("Limpar campos");
-		getContentPane().add(bntTeste);
-		bntTeste.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				cBoxPesquisaLinear.setSelected(true);
-				cBoxPesquisaBinaria.setSelected(true);
-				cBoxBogoBusca.setSelected(true);
-				cBoxTempo.setSelected(true);
-				cBoxComparacoes.setSelected(true);
-				txfQtValores.setText("999");
-				txfValorProcurado.setText("55");
-				cbxCaso.setSelectedIndex(3);
-			}
-		});
-		
 	}
 
 	private void gerarRelatorio() {
@@ -245,8 +217,7 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 
 	private String validarCampos() {
 		if(!cBoxPesquisaLinear.isSelected() &&
-		   !cBoxPesquisaBinaria.isSelected() &&
-		   !cBoxBogoBusca.isSelected()) {	
+		   !cBoxPesquisaBinaria.isSelected()) {	
 		return "Selecione ao menos um Algoritmo para gerar!";	
 		}
 		
@@ -278,7 +249,6 @@ public class AlgoritmosPesquisaWindow extends AbstractWindowFrame{
 	private void limparCampos() {
 		cBoxPesquisaLinear.setSelected(false);
 		cBoxPesquisaBinaria.setSelected(false);
-		cBoxBogoBusca.setSelected(false);
 		cBoxTempo.setSelected(false);
 		cBoxComparacoes.setSelected(false);
 		txfQtValores.setText("");

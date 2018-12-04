@@ -75,7 +75,7 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 
 		/* PAINEL DE ALGORITMOS */
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(30, 50, 250, 150));
+		painel.setBounds(new Rectangle(30, 50, 230, 150));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createTitledBorder("Algoritmos"));
@@ -130,10 +130,10 @@ public class OrdenacaoSofisticadaWindow extends AbstractWindowFrame{
 		label = new JLabel("Counting Sort");
 		label.setBounds(132, 50, 200, 25);
 		painel.add(label);
-
+		
 		/* PAINEL DE ATRIBUTOS */
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(310, 50, 200, 150));
+		painel.setBounds(new Rectangle(290, 50, 170, 150));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createTitledBorder("Atributos"));

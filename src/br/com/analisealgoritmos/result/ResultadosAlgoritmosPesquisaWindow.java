@@ -20,7 +20,6 @@ public class ResultadosAlgoritmosPesquisaWindow extends AbstractWindowFrame{
 	private JPanel painel;
 	private JTextField txfComparacoesLinear, txfPosicaoLinear, txfTempoLinear;
 	private JTextField txfComparacoesBinaria, txfPosicaoBinaria, txfTempoBinaria;
-	private JTextField txfComparacoesBogoBusca, txfPosicaoBogoBusca, txfTempoBogoBusca;
 
 	private ResultadosAlgoritmosPesquisaModel resultadosAlgoritmosPesquisaModel;
 
@@ -38,7 +37,7 @@ public class ResultadosAlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		getContentPane().add(label);
 		
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(130, 50, 160, 135));
+		painel.setBounds(new Rectangle(130, 50, 160, 105));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createEtchedBorder());
@@ -53,14 +52,9 @@ public class ResultadosAlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		label = new JLabel("Pesquisa Binária");
 		label.setBounds(30, 105, 200, 25);
 		getContentPane().add(label);
-
-		//Bogo Busca
-		label = new JLabel("Bogo Busca");
-		label.setBounds(30, 140, 200, 25);
-		getContentPane().add(label);
 		
-		label = new JLabel("Resultados obtidos a partir de " + /*resultadosMetodosSimplesModel.getQtdValores()*/"2" + " números distribuídos aleatoriamente.");
-		label.setBounds(30, 200, 600, 25);
+		label = new JLabel("Resultados obtidos a partir de " + resultadosAlgoritmosPesquisaModel.getQtdValores() + " números distribuídos aleatoriamente.");
+		label.setBounds(30, 170, 600, 25);
 		getContentPane().add(label);
 		
 		txfComparacoesLinear = new JTextField();
@@ -72,18 +66,13 @@ public class ResultadosAlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		txfComparacoesBinaria.setBounds(30, 55, 100, 25);
 		txfComparacoesBinaria.setEditable(false);
 		painel.add(txfComparacoesBinaria);
-		
-		txfComparacoesBogoBusca = new JTextField();
-		txfComparacoesBogoBusca.setBounds(30, 90, 100, 25);
-		txfComparacoesBogoBusca.setEditable(false);
-		painel.add(txfComparacoesBogoBusca);
 
 		label = new JLabel("POSIÇÃO");
 		label.setBounds(350, 20, 200, 25);
 		getContentPane().add(label);
 		
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(310, 50, 160, 135));
+		painel.setBounds(new Rectangle(310, 50, 160, 105));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createEtchedBorder());
@@ -98,18 +87,12 @@ public class ResultadosAlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		txfPosicaoBinaria.setBounds(30, 55, 100, 25);
 		txfPosicaoBinaria.setEditable(false);
 		painel.add(txfPosicaoBinaria);
-
-		txfPosicaoBogoBusca = new JTextField();
-		txfPosicaoBogoBusca.setBounds(30, 90, 100, 25);
-		txfPosicaoBogoBusca.setEditable(false);
-		painel.add(txfPosicaoBogoBusca);
-		
 		label = new JLabel("TEMPO");
 		label.setBounds(530, 20, 200, 25);
 		getContentPane().add(label);
 		
 		painel = new JPanel();
-		painel.setBounds(new Rectangle(490, 50, 160, 135));
+		painel.setBounds(new Rectangle(490, 50, 160, 105));
 		painel.setBackground(Color.WHITE);
 		painel.setLayout(null);
 		painel.setBorder(BorderFactory.createEtchedBorder());
@@ -124,11 +107,6 @@ public class ResultadosAlgoritmosPesquisaWindow extends AbstractWindowFrame{
 		txfTempoBinaria.setBounds(30, 55, 100, 25);
 		txfTempoBinaria.setEditable(false);
 		painel.add(txfTempoBinaria);
-		
-		txfTempoBogoBusca = new JTextField();
-		txfTempoBogoBusca.setBounds(30, 90, 100, 25);
-		txfTempoBogoBusca.setEditable(false);
-		painel.add(txfTempoBogoBusca);
 		
 		if(resultadosAlgoritmosPesquisaModel.getPesquisaLinearModel() != null) {
 		

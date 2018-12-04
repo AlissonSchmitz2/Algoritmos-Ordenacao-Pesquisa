@@ -216,5 +216,6 @@ public class ResultadosMetodosSofisticadosWindow extends AbstractWindowFrame {
 		txfTempoCounting.setText(String.valueOf(resultadosMetodosSofisticadosModel.getCountingSortModel().getTempo()) + " ms");
 
 		}
+		
 	}
 }
